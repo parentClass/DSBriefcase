@@ -53,7 +53,7 @@ span.quotation{
 	padding-top: 15px;
 }
 .intro-1,.intro-2,.intro-3,.intro-4,.intro-5,.intro-6,.intro-7{
-	font-family: 'Montserrat';
+	font-family: 'Catamaran';
 	color: white;
 	font-weight: bold;
 	font-size: 32px;
@@ -79,7 +79,37 @@ input[type=text]:focus {
 }
 
 /******** MEET AND GREET SLIDES ********/
+.mg-slide1-btn{
+	font-family: 'Raleway';
+	border: 1px snow solid;
+	background-color: #311B92;
+	transition: all .2s ease-in;
+	width: 120px;
 
+}
+.mg-slide1-btn:hover{
+	background-color: snow;
+	color: black;
+	width: 320px;
+}
+.hidden-arrows{
+	display: none;
+}
+.form-buzz{
+	display: none;
+}
+.fp-controlArrow{
+	color: black;
+	border: 2px red solid;
+}
+/******** PROWESS *******/
+#trg1st, #trg2nd, #trg3rd, #trg4th, #trg5th, #trg6th, #trg7th, #trg8th{
+	cursor: pointer;
+	font-weight: bolder;
+}
+table{
+	font-family: 'Raleway';
+}
 /******** FONTS ********/
 
 @font-face{

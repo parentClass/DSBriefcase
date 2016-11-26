@@ -1,13 +1,15 @@
 	
 	$(document).ready(function() {
+		displayDefaultChart();
+		$('select').material_select();
 	    $('#fullpage').fullpage({
 	        //Navigation
 	        menu: '#menu',
 	        lockAnchors: false,
-	        anchors:['home', 'meet-greet','webworks','prowess','communicate','online-journal'],
+	        anchors:['home', 'meet-greet','prowess','webworks','communicate','online-journal'],
 	        navigation: false,
 	        navigationPosition: 'right',
-	        navigationTooltips: ['home', 'meet-greet','webworks','prowess','communicate','online-journal'],
+	        navigationTooltips: ['home', 'meet-greet','prowess','webworks','communicate','online-journal'],
 	        showActiveTooltip: false,
 	        slidesNavigation: false,
 	        slidesNavPosition: 'bottom',
@@ -40,14 +42,14 @@
 	        bigSectionsDestination: null,
 
 	        //Accessibility
-	        keyboardScrolling: true,
+	        keyboardScrolling: false,
 	        animateAnchor: false,
 	        recordHistory: true,
 
 	        //Design
 	        controlArrows: true,
 	        verticalCentered: true,
-	        sectionsColor : ['#212626', '#311B92', '#4527a0', '#00695c', '#ef6c00', '#ef5350'],
+	        sectionsColor : ['#212626', '#283593', '#ffffff', '#4527a0', '#ef6c00', '#ef5350'],
 	        paddingTop: '3em',
 	        paddingBottom: '10px',
 	        fixedElements: '#header, .footer',
@@ -67,7 +69,7 @@
 	        },
 	        afterLoad: function(anchorLink, index){
 	        	if(anchorLink=="meet-greet"){
-	        		first_intro();
+	        		 first_intro();
 	        	}
 	        },
 	        afterRender: function(){new WOW().init();},
@@ -105,8 +107,139 @@
 	        			break;
 	        	}
 	   	    }
-	    });    
+	    });
+
+	    $('#trg1st').on("click",function(){
+	    	$('#myChart').remove();
+	    	chartUpdate(['MaterializeCSS','Bootstrap','Foundation','SemanticUI'],[100,100,53,48]);
+	    	
+	    });
+	    $('#trg2nd').on("click",function(){
+	    	$('#myChart').remove();
+	    	chartUpdate(['Codeigniter','CakePHP','Laravel'],[65,30,42]);
+
+	    });
+	    $('#trg3rd').on("click",function(){
+	    	$('#myChart').remove();
+	    	chartUpdate(['AngularJS','jQuery','node.js'],[51,78,20]);
+	    		    });
+	    $('#trg4th').on("click",function(){
+	    	$('#myChart').remove();
+	    	chartUpdate(['SpringMVC'],[15]);
+	    	
+	    });
+	    $('#trg5th').on("click",function(){
+	    	$('#myChart').remove();
+	    	chartUpdate(['Cordova','Xamarin'],[88,42]);
+	    	
+	    });
+	    $('#trg6th').on("click",function(){
+	    	$('#myChart').remove();
+	    	chartUpdate(['.NET'],[92]);
+	    	
+	    });
+	    $('#trg7th').on("click",function(){
+	    	$('#myChart').remove();
+	    	chartUpdate(['Django','Flask'],[23,64]);
+	    	
+	    });
+	    $('#trg8th').on("click",function(){
+	    	$('#myChart').remove();
+	    	chartUpdate(['Ruby on Rails'],[50]);
+	    	
+	    });
 	});
+
+	function chartUpdate(labelx,datax){
+		$('.graph-container').append("<canvas id='myChart' class='center' width='400' height='400'></canvas>");
+		var ctx = document.getElementById("myChart");
+		var myChart = new Chart(ctx, {
+		    type: 'pie',
+		    data: {
+		        labels: labelx,
+		        datasets: [{
+		            label: '% of framework mastery',
+		            data: datax,
+		            backgroundColor: [
+		                'rgba(255, 99, 132, 0.2)',
+		                'rgba(54, 162, 235, 0.2)',
+		                'rgba(255, 206, 86, 0.2)',
+		                'rgba(75, 192, 192, 0.2)',
+		                'rgba(153, 102, 255, 0.2)',
+		                'rgba(255, 159, 64, 0.2)'
+		            ],
+		            borderColor: [
+		                'rgba(255,99,132,1)',
+		                'rgba(54, 162, 235, 1)',
+		                'rgba(255, 206, 86, 1)',
+		                'rgba(75, 192, 192, 1)',
+		                'rgba(153, 102, 255, 1)',
+		                'rgba(255, 159, 64, 1)'
+		            ],
+		            borderWidth: 1
+		        }]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true
+		                }
+		            }],
+		            xAxes: [{
+		            	display: false,
+
+		            }]
+		        },
+		        responsive: true,
+		        showScale: false
+		    }
+		});
+	}
+
+	function displayDefaultChart(){
+		var ctx = document.getElementById("myChart");
+		var myChart = new Chart(ctx, {
+		    type: 'pie',
+		    data: {
+		        labels: [],
+		        datasets: [{
+		            label: '',
+		            data: [],
+		            backgroundColor: [
+		                'rgba(255, 99, 132, 0.2)',
+		                'rgba(54, 162, 235, 0.2)',
+		                'rgba(255, 206, 86, 0.2)',
+		                'rgba(75, 192, 192, 0.2)',
+		                'rgba(153, 102, 255, 0.2)',
+		                'rgba(255, 159, 64, 0.2)'
+		            ],
+		            borderColor: [
+		                'rgba(255,99,132,1)',
+		                'rgba(54, 162, 235, 1)',
+		                'rgba(255, 206, 86, 1)',
+		                'rgba(75, 192, 192, 1)',
+		                'rgba(153, 102, 255, 1)',
+		                'rgba(255, 159, 64, 1)'
+		            ],
+		            borderWidth: 1
+		        }]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true
+		                }
+		            }],
+		            xAxes: [{
+		            	display: false
+		            }]
+		        },
+		        responsive: true
+		    }
+		});
+	}
 
 	window.onload = function() {
 	  Particles.init({
@@ -192,8 +325,7 @@
 		    contentType: 'html',
 		    // call when done callback function
 		    callback: function() {
-		          $("#left-o").css("color","#3498db");
-		          $("#left-t").css("color","#3498db");
+
 		    },
 		    // starting callback function before each string
 		    preStringTyped: function() {},
@@ -441,25 +573,26 @@
 	}
 	function seventh_intro(){
 		$(".intro-7").typed({
-		    strings: ["Amazing!","You really did read my story?",
-		    		  "Let me know you dropped by!" +
+			strings: ["Amazing!","You really did read my story?","Let me know you dropped by!"],
+		    // strings: ["Amazing!","You really did read my story?",
+		    // 		  "Let me know you dropped by!" +
 
-		    		  	"<form>" +
-		    		  		"<div class='row'>" +
-		    		  			"<div class='input-field col s4 offset-s2 center'>" +
-		    		  				"<input id='name' type='text' class='validate'>" +
-		    		  				"<label for='name'>First Name</label>" +
-		    		  			"</div>" +
-		    		  			"<div class='input-field col s4 center'>" +
-		    		  				"<input id='email' type='email' class='validate'>" +
-		    		  				"<label for='email'>Email</label>" +
-		    		  			"</div>" +
-		    		  			"<div class='input-field col s12'>" +
-		    		  				"<a class='waves-effect waves-light btn btn-notify'>Submit</a>" + 
-		    		  			"</div>" +
-		    		  		"</div>" +
-		    		  	"</form>"
-		    		],
+		    // 		  	"<form>" +
+		    // 		  		"<div class='row'>" +
+		    // 		  			"<div class='input-field col s4 offset-s2 center'>" +
+		    // 		  				"<input id='name' type='text' class='validate'>" +
+		    // 		  				"<label for='name'>First Name</label>" +
+		    // 		  			"</div>" +
+		    // 		  			"<div class='input-field col s4 center'>" +
+		    // 		  				"<input id='email' type='email' class='validate'>" +
+		    // 		  				"<label for='email'>Email</label>" +
+		    // 		  			"</div>" +
+		    // 		  			"<div class='input-field col s12'>" +
+		    // 		  				"<a class='waves-effect waves-light btn btn-notify'>Submit</a>" + 
+		    // 		  			"</div>" +
+		    // 		  		"</div>" +
+		    // 		  	"</form>"
+		    // 		],
 		    // Optionally use an HTML element to grab strings from (must wrap each string in a <p>)
 		    stringsElement: null,
 		    // typing speed
@@ -486,7 +619,7 @@
 		    contentType: 'html',
 		    // call when done callback function
 		    callback: function() {
-
+		    	$('.form-buzz').removeClass("form-buzz").delay(3000).addClass("animated fadeInUp");
 		    },
 		    // starting callback function before each string
 		    preStringTyped: function() {},
