@@ -98,10 +98,6 @@ input[type=text]:focus {
 .form-buzz{
 	display: none;
 }
-.fp-controlArrow{
-	color: black;
-	border: 2px red solid;
-}
 /******** PROWESS *******/
 #trg1st, #trg2nd, #trg3rd, #trg4th, #trg5th, #trg6th, #trg7th, #trg8th{
 	cursor: pointer;
